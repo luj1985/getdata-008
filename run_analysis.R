@@ -12,7 +12,7 @@ readData <- function(type) {
   cbind(subjects, labels, measures)
 }
 
-run <- function() {
+run_analysis <- function() {
   # 1. Merges the training and the test sets to create one data set.
   train <- readData("train")
   test <- readData("test")
@@ -41,6 +41,3 @@ run <- function() {
     group_by(activity, subject) %>%
     summarise_each(funs(mean))
 }
-
-results <- run()
-write.table(results, file="results.txt", row.names=FALSE)
